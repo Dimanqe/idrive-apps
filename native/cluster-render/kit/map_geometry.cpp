@@ -4,7 +4,8 @@
 
 namespace crk {
 
-QuadRect map_quad(uint32_t scene_w, uint32_t scene_h, uint32_t tex_w, uint32_t tex_h)
+QuadRect map_quad(uint32_t scene_w, uint32_t scene_h, uint32_t tex_w, uint32_t tex_h,
+                  int32_t offset_x, int32_t offset_y)
 {
     uint64_t aw = scene_w, ah = scene_h;
     if (scene_w >= kMapAreaWidth && scene_h >= kMapAreaHeight) {
@@ -23,7 +24,9 @@ QuadRect map_quad(uint32_t scene_w, uint32_t scene_h, uint32_t tex_w, uint32_t t
         w = aw;                                       /* width-limited */
         h = (aw * tex_h + tex_w / 2) / tex_w;
     }
-    return QuadRect{(uint32_t)((scene_w - w) / 2), (uint32_t)((scene_h - h) / 2), (uint32_t)w, (uint32_t)h};
+    const int64_t x = (int64_t)(scene_w - w) / 2 + offset_x;
+    const int64_t y = (int64_t)(scene_h - h) / 2 + offset_y;
+    return QuadRect{(uint32_t)(x < 0 ? 0 : x), (uint32_t)(y < 0 ? 0 : y), (uint32_t)w, (uint32_t)h};
 }
 
 const char *texture_size_error(uint32_t tex_w, uint32_t tex_h)

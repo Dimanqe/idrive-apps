@@ -75,6 +75,10 @@ static void test_geometry()
     ok("map slot, 816x360 texture (34:15): exact fill", quad_is(map_quad(1088, 480, 816, 360), 0, 0, 1088, 480));
     ok("HUD 800x480 keeps its original smaller map", quad_is(map_quad(800, 480, 1088, 480), 173, 140, 453, 200));
     ok("square texture in the map slot: pillarboxed", quad_is(map_quad(1088, 480, 480, 480), 304, 0, 480, 480));
+    ok("positive map offsets move the fitted quad right and up",
+       quad_is(map_quad(1920, 720, 1088, 480, 24, 12), 440, 132, 1088, 480));
+    ok("negative map offsets move the fitted quad left and down",
+       quad_is(map_quad(1920, 720, 1088, 480, -24, -12), 392, 108, 1088, 480));
 
     ok("1088x480 is a valid texture", texture_size_error(1088, 480) == nullptr);
     ok("720x320 is a valid texture", texture_size_error(720, 320) == nullptr);

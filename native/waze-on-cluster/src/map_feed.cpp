@@ -85,7 +85,8 @@ void MapFeed::make_layer()
     }
     /* The map area: all of the map slot's scene, the centred 1088x480 of a
      * whole-panel one, a fitted centre on the HUD. */
-    const crk::QuadRect q = crk::map_quad(tw, th, cfg_.video.w, cfg_.video.h);
+    const crk::QuadRect q = crk::map_quad(tw, th, cfg_.video.w, cfg_.video.h,
+                                          cfg_.map_offset_x, cfg_.map_offset_y);
     lo_ = cr::LayerOptions();
     lo_.target = cfg_.target;
     lo_.klass = "content";

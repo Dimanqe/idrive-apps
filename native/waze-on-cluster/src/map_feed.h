@@ -43,6 +43,8 @@ namespace woc {
 struct FeedConfig {
     std::string socket = "/dev/shm/cluster-render/render.sock";
     std::string target = "map";
+    int32_t map_offset_x = 0;
+    int32_t map_offset_y = 0;
     cr::VideoOptions video;   /* w and h are the decoded frame's */
 };
 

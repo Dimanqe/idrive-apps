@@ -324,6 +324,10 @@ too. Details: the cluster-render README.
 
 Settings are in `waze-on-cluster.conf` (documented inline). Overrides go in
 `/var/opt/waze-on-cluster/waze-on-cluster.local.conf`, which updates keep.
+To shift the complete map image, set `map_offset_x` and `map_offset_y` there
+in pixels (positive X right, positive Y up; negative values move left/down),
+then restart `waze-on-cluster.service`. Both default to `0`. These move the
+whole CarPlay frame, including labels and the vehicle marker.
 
 ## The patch
 

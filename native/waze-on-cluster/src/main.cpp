@@ -192,6 +192,8 @@ int serve(const Config &cfg)
     FeedConfig fc;
     fc.socket = cfg.str("render_socket");
     fc.target = cfg.str("target");
+    fc.map_offset_x = (int32_t)cfg.num("map_offset_x");
+    fc.map_offset_y = (int32_t)cfg.num("map_offset_y");
     fc.video.w = vc.tex_width;
     fc.video.h = vc.tex_height;
     fc.video.fps = (unsigned)cfg.num("target_fps");
@@ -430,6 +432,8 @@ void define_keys(Config *cfg)
     cfg->define("pan_blocks", "1");
     cfg->define("tex_level_bits", "2");
     cfg->define("target", "map");
+    cfg->define("map_offset_x", "0");
+    cfg->define("map_offset_y", "0");
     cfg->define("render_socket", "/dev/shm/cluster-render/render.sock");
     cfg->define("log_file", "/var/opt/waze-on-cluster/log/waze-on-cluster.log");
     cfg->define("log_file_kb", "512");

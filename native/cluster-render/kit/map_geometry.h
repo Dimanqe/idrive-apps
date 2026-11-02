@@ -31,7 +31,8 @@ struct QuadRect {
     uint32_t x, y, w, h;
 };
 
-QuadRect map_quad(uint32_t scene_w, uint32_t scene_h, uint32_t tex_w, uint32_t tex_h);
+QuadRect map_quad(uint32_t scene_w, uint32_t scene_h, uint32_t tex_w, uint32_t tex_h,
+                  int32_t offset_x = 0, int32_t offset_y = 0);
 
 /* Why a tex_w x tex_h frame cannot be the map texture (its 4:2:0 atlas,
  * yuv_atlas.h), or null. Both sides even (the H.264 4:2:0 picture the phone
