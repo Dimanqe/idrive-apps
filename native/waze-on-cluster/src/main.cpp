@@ -432,7 +432,7 @@ void define_keys(Config *cfg)
     cfg->define("pan_blocks", "1");
     cfg->define("tex_level_bits", "2");
     cfg->define("target", "map");
-    cfg->define("map_offset_x", "30");
+    cfg->define("map_offset_x", "140");
     cfg->define("map_offset_y", "0");
     cfg->define("render_socket", "/dev/shm/cluster-render/render.sock");
     cfg->define("log_file", "/var/opt/waze-on-cluster/log/waze-on-cluster.log");
